@@ -69,6 +69,9 @@ export const Navbar = () => {
                 </div>
             </div>
         </div>
+        <div className="text-foreground">
+            <h1> This site is under construction...</h1>
+        </div>
     </nav>
     );
 };
