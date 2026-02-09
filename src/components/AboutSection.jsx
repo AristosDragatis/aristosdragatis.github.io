@@ -1,3 +1,4 @@
+import { Code } from "lucide-react"
 
 
 export const AboutSection = () => {
@@ -10,23 +11,40 @@ export const AboutSection = () => {
 
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                {/*  Left hand side of the about me section  */}
                 <div className="space-y-6">
-                    <h3 className="text-2xl font-semibold">BSc Degree</h3>
+                    <h3 className="text-2xl font-semibold">Software Engineer</h3>
 
                     <p className="text-muted-foreground">
-                        I got my BSc degree in Informatics & Telecommunications at University of Ioannina based in Arta,Greece.
+                        I am a Software Engineer with a solid academic foundation, having successfully completed my Bachelor’s degree and currently pursuing a Master’s degree to further specialize in advanced computing systems. My academic journey has equipped me with a meticulous approach to problem-solving and a deep understanding of the theoretical principles that drive efficient software development.
+                    </p>
+
+                    <p className="text-muted-foreground">
+                        Beyond standard backend development, I have a strong interest in high-performance computing and have actively worked with Parallel Programming to optimize resource management and concurrency using C programming language.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                         <a href="#contact" className="cosmic-button">
-                           Download CV 
+                            Get In Touch
+                        </a>
+                        <a href="" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300">
+                            Download CV
                         </a>
 
                     </div>
                 </div>
 
-                <div>
-
+                {/*  cards right hand side of the about me section */}
+                <div className="grid grid-cols-1 gap-6">
+                    <div className="gradient-border p-6 card-hover">
+                        <div className="flex items-start gap-4">
+                            <div className="p-3 rounded-full bg-primary/10">
+                                <Code /> 
+                            </div>
+                        </div>
+                    </div>
+                    <div className="gradient-border p-6 card-hover"></div>
+                    <div className="gradient-border p-6 card-hover"></div>
                 </div>
             </div>
         </div>
