@@ -16,11 +16,11 @@ export const HeroSection = () => {
 
             <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">I am a Software Engineer dedicated to building scalable applications and reengineering legacy systems into modern, maintainable architectures.</p>
 
-            <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-                <a href="#projects" className="cosmic-button">
+            <div className="flex flex-col sm:flex-row justify-center pt-4 opacity-0 animate-fade-in-delay-4">
+                <a href="#projects" className="cosmic-button px-6 py-2 bg-primary/80 rounded-full border border-primary text-foreground hover:bg-primary/10 transition-colors duration-300">
                     View My Work
                 </a>
-            </div>
+            </div> 
         </div>
     </div>
     
