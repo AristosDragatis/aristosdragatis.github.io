@@ -2,6 +2,7 @@ import { Navbar } from "../components/Navbar";
 import { StarBackground } from "../components/StarBackground";
 import { ThemeToggle } from "../components/ThemeToggle"
 import { HeroSection } from "../components/HeroSection";
+import { AboutSection } from "../components/AboutSection";
 
 export const Home = () => {
     /*  we use styling from tailwind */
@@ -19,6 +20,7 @@ export const Home = () => {
     {/*  Main content*/ }
     <main>
         <HeroSection/>
+        <AboutSection/>
     </main>
 
     {/*  Footer*/ }
