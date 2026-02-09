@@ -13,8 +13,6 @@ export const AboutSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 {/*  Left hand side of the about me section  */}
                 <div className="space-y-6">
-                    <h3 className="text-2xl font-semibold">Software Engineer</h3>
-
                     <p className="text-muted-foreground">
                         I am a Software Engineer with a solid academic foundation, having successfully completed my Bachelor’s degree and currently pursuing a Master’s degree to further specialize in advanced computing systems. My academic journey has equipped me with a meticulous approach to problem-solving and a deep understanding of the theoretical principles that drive efficient software development.
                     </p>
@@ -32,14 +30,16 @@ export const AboutSection = () => {
                 </div>
 
                 {/*  cards right hand side of the about me section */}
+                {/* 
                 <div className="grid grid-cols-1 gap-6">
                     <div className="gradient-border p-6 card-hover">
                         <div className="flex items-start gap-4">
                             <div className="p-3 rounded-full bg-primary/10">
                                 <Code className="h-6 w-6 text-primary"/> 
-                                <div className="text-left">
-
-                                </div>
+                            </div>
+                            <div className="text-left">
+                                <h4 className="font-semibold text-lg">Software Engineering</h4>
+                                <p className="text-muted-foreground">Developing systems to improve maintainability and extensibility.</p>
                             </div>
                         </div>
                     </div>
@@ -58,6 +58,36 @@ export const AboutSection = () => {
                         </div>
                     </div>
                 </div>
+                */}
+
+                {/* Right Side - Photo Section */}
+                <div className="flex justify-center items-center h-full w-full">
+                    {/* Image Wrapper Container */}
+                    <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 group">
+                        
+                        {/* 1. Gradient Glow Effect (Back Layer) */}
+                        {/* Αυτό δημιουργεί τη λάμψη πίσω από την εικόνα που δυναμώνει στο hover */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-blue-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-80 transition duration-500 group-hover:duration-200"></div>
+                        
+                        {/* 2. Main Image Container */}
+                        <div className="relative h-full w-full rounded-2xl overflow-hidden border-2 border-primary/20 bg-background shadow-2xl">
+                            <img 
+                                src="/path-to-your-image.jpg"  /* <--- ΒΑΛΕ ΕΔΩ ΤΟ PATH ΤΗΣ ΦΩΤΟΓΡΑΦΙΑΣ ΣΟΥ */
+                                alt="Profile" 
+                                className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-2"
+                            />
+                            
+                            {/* Optional: Overlay (αν θες να σκουραίνει λίγο στο hover για να φαίνονται γράμματα αν βάλεις) */}
+                            {/* <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" /> */}
+                        </div>
+
+                        {/* 3. Decorative Elements (Optional - Dots or Squares behind) */}
+                        <div className="absolute -z-10 -bottom-6 -right-6 h-24 w-24 rounded-full bg-primary/20 blur-2xl"></div>
+                        <div className="absolute -z-10 -top-6 -left-6 h-24 w-24 rounded-full bg-blue-500/20 blur-2xl"></div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
