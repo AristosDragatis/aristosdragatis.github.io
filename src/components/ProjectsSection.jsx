@@ -9,6 +9,14 @@ const projects = [
        tags: ["Java", "Thymeleaf", "Spring Boot"],
        githubUrl: "https://github.com/AristosDragatis/TraineeshipApp.git"  
     },
+    {
+       id: 1,
+       title: "Instruction Computer in C",
+       description: "A terminal-based instruction simulator in C with registers, memory, and command parsing",
+       image: "/projects/project_2.png",
+       tags: ["C"],
+       githubUrl: "https://github.com/AristosDragatis/Instruction-Based_Computer_in_C.git" 
+    },
 ]
 
 export const ProjectsSection = () => {

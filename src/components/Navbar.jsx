@@ -7,6 +7,7 @@ const navItems = [
     {name: "Home", href: "#hero"},
     {name: "About", href: "#about"},
     /* {name: "Skills", href: "#skills"}, */ 
+    {name: "Experience", href: "#experience"},
     {name: "Projects", href: "#projects"},
 ];
 
@@ -14,21 +15,31 @@ const navItems = [
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(true);
+    let lastScrollY = 0;
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.screenY > 10)
-        }
-
-        window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", setIsScrolled)
-    }, [])
+            setIsScrolled(window.scrollY > 10);
+            if (window.scrollY > lastScrollY && window.scrollY > 50) {
+                setShowNavbar(false); // scroll down
+            } else {
+                setShowNavbar(true); // scroll up
+            }
+            lastScrollY = window.scrollY;
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-    <nav className= {cn("fixed w-full z-40 transition-all duration-300", 
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
-    )}
-    >
+        <nav
+            className={cn(
+                "fixed w-full z-40 transition-all duration-300",
+                isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5",
+                showNavbar ? "top-0" : "-top-24"
+            )}
+        >
 
         <div className="container flex items-center justify-between">
             <a className="text-xl font-bold text-primary flex items-center" href="#hero">
