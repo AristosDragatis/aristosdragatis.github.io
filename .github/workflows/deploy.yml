@@ -1,0 +1,58 @@
+# Builds the site and publishes it to GitHub Pages on every push to main.
+# Requires: Settings → Pages → Build and deployment → Source = "GitHub Actions".
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # adds a "Run workflow" button in the Actions tab for manual re-deploys
+  workflow_dispatch:
+
+# one deployment at a time: a newer push waits instead of cancelling a deployment halfway
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # this job runs third-party npm code (install scripts), so it only gets read access
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # only this job may publish; the OIDC token (id-token) proves the deployment comes from this workflow
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
