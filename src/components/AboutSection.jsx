@@ -22,7 +22,8 @@ export const AboutSection = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                        <a href="" className="cosmic-button px-6 bg-primary/80 py-2 rounded-full border border-primary text-foreground hover:bg-primary/10 transition-colors duration-300">
+                        {/* The PDF lives in /public, so Vite serves it as-is from the site root */}
+                        <a href="/Aristeidis_Dragatis_CV.pdf" target="_blank" rel="noopener noreferrer" className="cosmic-button px-6 bg-primary/80 py-2 rounded-full border border-primary text-foreground hover:bg-primary/10 transition-colors duration-300">
                             View Full CV
                         </a>
 

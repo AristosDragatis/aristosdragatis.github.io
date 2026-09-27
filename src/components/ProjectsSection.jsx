@@ -1,4 +1,4 @@
-import { ArrowRight, Github } from "lucide-react"
+import { ArrowRight, FolderGit2, Github, Wallet } from "lucide-react"
 
 const projects = [
     {
@@ -10,14 +10,28 @@ const projects = [
        githubUrl: "https://github.com/AristosDragatis/TraineeshipApp.git"  
     },
     {
-       id: 1,
-       title: "Instruction Computer in C",
-       description: "A terminal-based instruction simulator in C with registers, memory, and command parsing",
-       image: "/projects/project_2.png",
-       tags: ["C"],
-       githubUrl: "https://github.com/AristosDragatis/Instruction-Based_Computer_in_C.git" 
+       id: 2,
+       title: "Personal Finance Tracker",
+       description: "Full-stack expense tracker with a JWT-secured Spring Boot REST API and a React front-end",
+       icon: Wallet, /* shown until a screenshot is added as `image` */
+       tags: ["Java", "Spring Boot", "React", "PostgreSQL"],
+       githubUrl: "https://github.com/AristosDragatis/FinanceTracker"
     },
 ]
+
+/*  project screenshot, or the project's icon on a gradient when there is no screenshot yet */
+const ProjectImage = ({ project }) => {
+    if (project.image) {
+        return <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
+    }
+
+    const Icon = project.icon ?? FolderGit2;
+    return (
+        <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-primary/30 via-primary/10 to-transparent transition-transform duration-500 group-hover:scale-110">
+            <Icon className="h-16 w-16 text-primary"/>
+        </div>
+    );
+};
 
 export const ProjectsSection = () => {
 
@@ -31,17 +45,17 @@ export const ProjectsSection = () => {
 
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map((project, key) => (
-                    <div key={key} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover">
+                {projects.map((project) => (
+                    <div key={project.id} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover">
                         
                         <div className="h-48 overflow-hidden">
-                            <img  src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/> 
+                            <ProjectImage project={project}/>
                         </div>
 
                         <div className="p-6">
                             <div className="flex flex-wrap gap-2 mb-4">
                                 {project.tags.map((tag) => (
-                                   <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary/20 border text-secondary-foreground">
+                                   <span key={tag} className="px-2 py-1 text-xs font-medium rounded-full bg-primary/20 border text-secondary-foreground">
                                     {tag}
                                    </span> 
                                 ))}
